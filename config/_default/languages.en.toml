@@ -1,23 +1,23 @@
-languageCode = "en"
-languageName = "English"
-weight = 1
-title = "Lowkey Blowfish"
+languageCode = "zh-cn" # 语言代码，用于 HTML 的 lang 属性（例如：en, zh-cn）
+languageName = "English" # 语言名称，显示在语言切换菜单中
+weight = 1 # 语言权重，决定在多语言菜单中的排序
+title = "ZH1227" # 网站标题，显示在浏览器标签页和首页
 
 [params]
-  displayName = "EN"
-  isoCode = "en"
-  rtl = false
-  logo = "img/logo.png"
-  description = "My awesome website"
-  # copyright = "Copy, _right?_ :thinking_face:"
-  dateFormat = "2 January 2006"
+  displayName = "EN" # 语言的显示简称（用于切换按钮）
+  isoCode = "en" # ISO 语言代码
+  rtl = false # 是否为从右向左阅读的文字（如阿拉伯语，设为 false）
+  logo = "img/logo.png" # 网站 Logo 路径，相对于 assets/ 目录
+  description = "My awesome website" # 网站描述，用于 SEO 搜索优化
+  # copyright = "Copy, _right?_ :thinking_face:" # 网站底部的版权声明文字
+  dateFormat = "2 January 2006" # 日期显示格式
 
 [params.author]
-  name = "你的名字"
-  image = "img/logo.png"
-  headline = "个人介绍标题"
-  bio = "详细的个人简介"
-   links = [
-     { github = "https://github.com/yourhandle" },
-     { twitter = "https://twitter.com/yourhandle" }
+  name = "ZH1227" # 作者姓名
+  image = "img/logo.png" # 作者头像路径，相对于 assets/ 目录
+  headline = "个人介绍标题" # 个人主页上的简短标题/标语
+  bio = "详细的个人简介" # 作者的详细自我介绍
+   links = [ # 社交链接列表
+     # { github = "https://github.com/yourhandle" }, # GitHub 链接
+     # { twitter = "https://twitter.com/yourhandle" } # Twitter 链接
    ]
