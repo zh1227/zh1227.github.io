@@ -1,0 +1,23 @@
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "Lowkey Blowfish"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  logo = "img/logo.png"
+  description = "My awesome website"
+  # copyright = "Copy, _right?_ :thinking_face:"
+  dateFormat = "2 January 2006"
+
+[params.author]
+  name = "你的名字"
+  image = "img/logo.png"
+  headline = "个人介绍标题"
+  bio = "详细的个人简介"
+   links = [
+     { github = "https://github.com/yourhandle" },
+     { twitter = "https://twitter.com/yourhandle" }
+   ]
