@@ -28,8 +28,8 @@
    - 保存后，等待 Actions 工作流自动运行
 
 4. **访问网站**
-   - 仓库名为 `username.github.io`：访问 `https://username.github.io`
-   - 其他仓库名：访问 `https://username.github.io/repository-name`
+   - 仓库名为 `zh1227.github.io`：访问 `https://zh1227.github.io`
+   - 其他仓库名：访问 `https://zh1227.github.io/repository-name`
 
 ## 📝 本地开发
 
