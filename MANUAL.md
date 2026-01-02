@@ -89,11 +89,40 @@ Blowfish 主题会自动识别名为 `feature.*` 或 `cover.*` 的图片作为�
 
 ## ⚡ 第三部分：一键发布指令（终极步骤）
 
+## ✅ 仓库上传规则（必须遵守）
+
+根据 Hugo 官方目录结构说明：`public/`（构建输出）和 `resources/`（管线缓存）是运行 `hugo` / `hugo server` 时自动生成的目录，Hugo 会按需重建它们，因此**不应上传到仓库**。同理，编辑器/AI 工具的本地配置也不应进入仓库。
+
+### 允许上传（网站源文件）
+- `content/`：文章与页面内容（含 Page Bundle 图片/附件）
+- `config/`：站点配置（含 `config/_default/*.toml`）
+- `layouts/`、`assets/`、`static/`、`archetypes/`：模板/资源/静态文件/内容模板
+- `themes/`：主题源码（若你选择“主题随仓库管理”；如果改用 Hugo Module 或 submodule，则以对应方式管理）
+- 文档类：`README.md`、`MANUAL.md`、`THEME_CONFIG.md` 等
+
+### 禁止上传（生成物/缓存/本地环境）
+- `public/`：站点构建产物（由 CI/Cloudflare Pages 构建生成）
+- `resources/`：Hugo Pipes 缓存
+- `.hugo_build.lock`：Hugo 构建锁文件
+- `.vscode/`、`.idea/`、`.claude/`：本地工具配置
+- `node_modules/`：前端依赖（如果你在主题目录执行过 npm 安装）
+- `.env*`、`*.key`、`*.pem`：环境变量与密钥文件
+
+### 永远不要做
+- 不要为了省事把“生成结果”提交进仓库（例如把 `public/` 提交上去）。
+- 不要无脑 `git add .` 后直接提交，必须先 `git status` 复查。
+
 当你完成了以上任何修改，请依次在终端运行这三行代码。**不要思考，照着打：**
 
-1.  **告诉 Git 你改了什么**：
+0.  **先检查这次会提交什么**：
     ```powershell
-    git add .
+    git status --short
+    ```
+    确认列表里只包含网站源文件的变更（尤其不能出现 `public/`、`resources/`、`.vscode/` 等）。
+
+1.  **把需要的改动加入暂存区**：
+    ```powershell
+    git add -A
     ```
 2.  **给这次修改起个名字**（引号里随便写）：
     ```powershell

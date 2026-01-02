@@ -1,7 +1,24 @@
 public/
 resources/
 .hugo_build.lock
-.claude/
+
+# Local tooling/editor state (do not commit)
 .vscode/
+.claude/
+.idea/
+.history/
+
+# Node dependencies (theme tooling)
+**/node_modules/
+**/.parcel-cache/
+
+# Logs / OS
 *.log
 .DS_Store
+Thumbs.db
+
+# Secrets (never commit)
+.env
+.env.*
+*.key
+*.pem
