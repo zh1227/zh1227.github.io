@@ -17,5 +17,8 @@ title = "ZH1227" # 网站标题
   headline = "欢迎来到我的个人网站" # 个人主页标题
   bio = "这里记录我的技术探索与生活感悟。" # 作者简介
   links = [
-    { github = "https://github.com/zh1227" }
+    { github = "https://github.com/zh1227" },
+    # { twitter = "https://twitter.com/..." },
+    # { email = "mailto:you@example.com" },
+    # { linkedin = "https://www.linkedin.com/in/..." },
   ]
