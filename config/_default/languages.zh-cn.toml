@@ -18,7 +18,7 @@ title = "ZH1227" # 网站标题
   bio = "未来已来，只是分布不均。" # 作者简介
   links = [
     { github = "https://github.com/zh1227" },
+    { email = "mailto:hi-227@outlook.com" },
     # { twitter = "https://twitter.com/..." },
-    # { email = "mailto:you@example.com" },
     # { linkedin = "https://www.linkedin.com/in/..." },
   ]
