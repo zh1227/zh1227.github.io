@@ -1,120 +1,113 @@
-# 🌐 Blowfish 网站完整使用与操作手册
+# 📖 zh1227 网站全能操作与维护手册 (极详尽版)
 
-本手册为您提供 Blowfish 主题网站的**全量参数说明**、日常维护及高级功能配置指南。
-
----
-
-## 📍 当前站点状态 (Current Status)
-
-目前您的站点正在使用 **`layout = "page"`** 极致简约布局。
-
-- **效果**：移除了首页所有的背景图、大标题和头像块，直接将“最近的文章”置顶显示。
-- **关联文件**：
-    - 配置：[params.toml](config/_default/params.toml) -> `layout = "page"`
-    - 内容：[content/_index.md](content/_index.md) (保持为空以消除首页文字)
+本手册是为您量身定制的“无脑式”操作指南。涵盖了从写文章、传图片到全站参数修改的每一个细节。请将其作为您的常备工具书。
 
 ---
 
-## 🛠 一、 全局站点配置 (hugo.toml)
-*控制网站的基础行为和元数据。*
+## 🚀 第一部分：内容创作（文章与图片）
 
-| 参数 | 说明 | 默认值/示例 |
+### 1. 文章存放在哪里？
+所有的文章都必须放在 `content/posts/` 目录下。
+- **推荐结构（Page Bundles）**：为每篇文章创建一个独立的文件夹。
+  - 路径示例：`content/posts/我的第一篇文章/`
+  - 文件夹内必须包含：`index.md`（正文文件）
+  - 文件夹内可以包含：图片、附件等。
+
+### 2. 如何发布一篇新文章（无脑步骤）
+1.  **创建文件夹**：在 `content/posts/` 下新建一个文件夹（不要用中文名，建议用英文或拼音，如 `my-new-post`）。
+2.  **创建文件**：在文件夹里新建一个文本文件，命名为 `index.md`。
+3.  **填写头部信息（Front Matter）**：在文件最开头写入以下内容：
+    ```markdown
+    ---
+    title: "这里写文章的中文标题"
+    date: 2024-01-02
+    description: "这里写一段简短的文章摘要（可选）"
+    draft: false  # ⚠️ 必须是 false 才能发布！如果是 true，网站上看不见。
+    ---
+    ```
+4.  **写正文**：在第二个 `---` 之后开始写你的 Markdown 内容。
+
+### 3. 如何在文章中添加图片？
+1.  **准备图片**：把图片（如 `pic1.jpg`）直接丢进该文章的文件夹里。
+2.  **引用图片**：在 `index.md` 中使用以下语法：
+    ```markdown
+    ![图片描述](pic1.jpg)
+    ```
+
+### 4. 如何更换文章顶部的 Banner（封面图）？
+Blowfish 主题会自动识别名为 `feature.*` 或 `cover.*` 的图片作为封面。
+1.  **准备图片**：找一张精美的宽图，重命名为 `feature.jpg`（或 `.png`）。
+2.  **放置图片**：直接丢进该文章的文件夹里。
+3.  **自动显示**：主题会自动将其显示在文章顶部和首页列表的卡片上。
+
+---
+
+## 🎨 第二部分：全站设置与参数列表
+
+所有的配置文件都位于 `config/_default/` 目录下。
+
+### 1. 网站基础信息 (`languages.en.toml`)
+控制你是谁，以及网站叫什么。
+
+| 参数名 | 所在位置 | 修改建议 |
 | :--- | :--- | :--- |
-| `baseURL` | 网站部署后的完整域名 | `"https://your-site.com/"` |
-| `theme` | 指定使用的主题名称 | `"blowfish"` |
-| `defaultContentLanguage` | 默认语言 | `"en"` |
-| `[pagination].pagerSize` | 每页显示的文章数量 | `20` |
-| `summaryLength` | 首页文章摘要的字数限制 | `30` |
-| `enableEmoji` | 是否在文章中支持 Emoji 表情 | `true` |
-| `buildDrafts` | 是否构建标记为 draft (草稿) 的文章 | `false` |
+| `title` | 第 4 行 | 修改为你网站的名字（显示在浏览器标签页）。 |
+| `description` | 第 11 行 | 网站的一句话描述（影响 SEO 搜索结果）。 |
+| `dateFormat` | 第 13 行 | 日期格式，如 `"2006-01-02"`。 |
+| `[params.author].name` | 第 16 行 | 你的大名，会显示在文章底部和首页。 |
+| `[params.author].image` | 第 17 行 | 头像路径。建议把头像放在 `assets/img/avatar.png`，此处填 `"img/avatar.png"`。 |
+| `[params.author].headline` | 第 18 行 | 个人简介的一句话标题。 |
+| `[params.author].bio` | 第 19 行 | 详细的自我介绍。 |
 
----
+### 2. 主题外观设置 (`params.toml`)
+控制网站“长什么样”。
 
-## 🎨 二、 主题功能配置 (params.toml)
-*核心功能开关，决定网站“长什么样”。*
+| 参数名 | 所在位置 | 可选值与说明 |
+| :--- | :--- | :--- |
+| **`colorScheme`** | 第 8 行 | `blowfish`, `congo`, `ocean`, `forest`, `github` 等。 |
+| **`defaultAppearance`** | 第 9 行 | `light` (浅色), `dark` (深色)。 |
+| **`layout` (首页)** | 第 29 行 | `page` (简约), `profile` (个人名片), `hero` (大图), `card` (卡片流)。 |
+| **`showRecent`** | 第 30 行 | `true`/`false`。是否在首页显示“最近文章”。 |
+| **`heroStyle`** | 第 45 行 | 文章顶部的封面样式：`basic` (标准), `big` (大图), `background` (背景图)。 |
+| **`showTableOfContents`** | 第 56 行 | `true`/`false`。是否在文章右侧显示目录。 |
+| **`showWordCount`** | 第 59 行 | `true`/`false`。是否显示文章字数。 |
 
-### 1. 基础外观 (Global)
-- `colorScheme`: 配色方案。可选：`blowfish` (默认), `congo`, `ocean`, `forest` 等。
-- `defaultAppearance`: 默认外观模式。可选：`light` (浅色), `dark` (深色)。
-- `autoSwitchAppearance`: 是否根据系统设置自动切换深浅色。
-- `enableSearch`: 是否开启右上角全局搜索。
-- `enableCodeCopy`: 代码块是否显示一键复制按钮。
-
-### 2. 导航栏设置 (Header)
-- `layout`: 导航栏布局。
-    - `fixed`: 固定在顶部，随页面滚动。
-    - `basic`: 随页面滚动而消失。
-
-### 3. 页脚设置 (Footer)
-- `showCopyright`: 是否显示版权信息。
-- `showThemeAttribution`: 是否显示主题来源声明。
-- `showAppearanceSwitcher`: 是否显示深浅色切换按钮。
-- `showScrollToTop`: 是否显示回到顶部按钮。
-
-### 4. 首页设置 (Homepage)
-- `layout`: **(核心)** 首页展示模式。
-    - `page`: **(当前使用)** 使用 `_index.md` 内容，最简约。
-    - `card`: 纯文章卡片流。
-    - `hero`: 大图欢迎背景 + 标题。
-    - `profile`: 个人头像 + 简介居中。
-- `showRecent`: 是否在首页显示“最近的文章”列表。
-- `showRecentItems`: 首页显示的最近文章数量（默认 5）。
-- `cardView`: 首页文章是否以卡片形式展示（false 为列表）。
-
-### 5. 文章页面设置 (Article)
-- `showDate`: 显示发布日期。
-- `showReadingTime`: 显示预计阅读时间。
-- `showWordCount`: 显示总字数。
-- `showTableOfContents`: 开启文章右侧/顶部目录。
-- `heroStyle`: 详情页顶部封面样式 (`basic`, `big`, `background`)。
-- `showAuthor`: 页面底部是否显示作者信息卡片。
-
----
-
-## 👤 三、 个人信息与多语言 (languages.en.toml)
-*定义您是谁，以及站点显示的文字内容。*
-
-### 1. 站点元数据
-- `title`: 网站名称（显示在浏览器标签页）。
-- `description`: 网站描述（对 SEO 非常重要）。
-- `dateFormat`: 日期格式（如 `"2 January 2006"`）。
-
-### 2. 作者信息 (params.author)
-- `name`: 您的名字。
-- `image`: 头像路径（存放于 `assets/img/`）。
-- `headline`: 一句话简介。
-- `bio`: 详细的自我介绍。
-- `links`: 社交链接列表（支持 GitHub, Twitter, Email 等）。
-
----
-
-## 📝 四、 日常维护操作流程
-
-### 1. 发布新文章
-```mermaid
-graph TD
-    A[执行命令 hugo new] --> B[编辑 posts/ 下的 .md 文件]
-    B --> C[设置 Front Matter 标题/日期]
-    C --> D[将 draft 设为 false]
-    D --> E[Git Push 自动部署]
+### 3. 导航菜单设置 (`menus.en.toml`)
+控制顶部那几个点击跳转的按钮。
+```toml
+[[main]]
+  name = "文章"        # 按钮显示的文字
+  url = "/posts/"     # 点击跳转的路径
+  weight = 1          # 排序权重（越小越靠左）
 ```
 
-### 2. 常用维护命令 (Docker)
-| 命令 | 用途 |
-| :--- | :--- |
-| `docker-compose restart hugo-dev` | **最常用**：修改配置后强制刷新页面 |
-| `docker logs -f hugo-dev` | 查看报错信息（如网页打不开时） |
-| `docker exec -it hugo-dev hugo new posts/xxx.md` | 在容器内创建新文章文件 |
+---
+
+## ⚡ 第三部分：一键发布指令（终极步骤）
+
+当你完成了以上任何修改，请依次在终端运行这三行代码。**不要思考，照着打：**
+
+1.  **告诉 Git 你改了什么**：
+    ```powershell
+    git add .
+    ```
+2.  **给这次修改起个名字**（引号里随便写）：
+    ```powershell
+    git commit -m "update my blog"
+    ```
+3.  **把代码送到 GitHub 上去发布**：
+    ```powershell
+    git push
+    ```
 
 ---
 
-## 🚀 五、 进阶：内容增强组件 (Shortcodes)
-*在 Markdown 中直接复制以下代码使用。*
+## 🆘 第四部分：防坑检查清单
 
-- **警告框 (Alert)**: `{{< alert icon="fire" >}} 提示文字 {{< /alert >}}`
-- **按钮 (Button)**: `{{< button href="链接" >}} 文字 {{< /button >}}`
-- **流程图 (Mermaid)**: `{{< mermaid >}} graph TD; A-->B; {{< /mermaid >}}`
+- [ ] **文件名**：文件夹和图片名**严禁使用中文**，建议全部小写英文加中划线（如 `my-photo-2024.jpg`）。
+- [ ] **草稿状态**：如果发现文章不显示，检查头部是不是写了 `draft: true`。必须改为 `draft: false`。
+- [ ] **强制刷新**：有时候改了没生效，是因为浏览器缓存。请按下 `Ctrl + F5`。
+- [ ] **图片引用**：在文章里引用图片，直接写文件名即可（如 `pic.jpg`），不需要写长长的路径，前提是你用了“文章文件夹”模式。
 
 ---
-
-*更多技术细节请查阅：[Blowfish 官方配置文档](https://nunocoracao.github.io/blowfish/docs/configuration/)*
+*Powered by Trae - 您的全能编程助手*

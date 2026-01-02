@@ -1,55 +1,29 @@
-# Hugo + Blowfish 主题网站
+# 🚀 zh1227's Blog (Hugo + Blowfish)
 
-这是一个使用 [Hugo](https://gohugo.io/) 静态网站生成器和 [Blowfish](https://nunocoracao.github.io/blowfish/) 主题构建的个人网站。
+这是一个基于 [Hugo](https://gohugo.io/) 和 [Blowfish](https://nunocoracao.github.io/blowfish/) 主题构建的个人网站。
 
-## 🚀 部署到 GitHub Pages
+## 🛠 快速操作指令
 
-网站已配置自动部署到 GitHub Pages。每次推送到 `main` 分支时会自动触发构建和部署。
+如果你已经安装了 Git 和 Hugo，可以使用以下命令：
 
-### 首次部署步骤
+| 任务 | 命令 |
+| :--- | :--- |
+| **本地预览** | `hugo server -D` (访问 http://localhost:1313) |
+| **新建文章** | `hugo new posts/my-post/index.md` |
+| **发布更新** | `git add .`; `git commit -m "update"`; `git push` |
 
-1. **创建 GitHub 仓库**
-   - 在 GitHub 上创建一个新仓库（例如：`username.github.io` 或任意名称）
-   - 不要初始化 README、.gitignore 或 LICENSE
+## 📖 文档指南
 
-2. **关联远程仓库**
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/你的用户名/你的仓库名.git
-   git push -u origin main
-   ```
+为了让你能够“无脑”维护网站，请务必查看以下手册：
 
-3. **启用 GitHub Pages**
-   - 进入仓库的 Settings → Pages
-   - Source 选择：**GitHub Actions**
-   - 保存后，等待 Actions 工作流自动运行
+- **[MANUAL.md](MANUAL.md)**：**内容维护手册**（包含：如何写文章、插图片、换 Banner、一键发布）。
+- **[THEME_CONFIG.md](THEME_CONFIG.md)**：**主题定制手册**（包含：深度修改网站外观、参数、配色、菜单）。
+- **[config/_default/](config/_default/)**：存放所有网站配置文件（标题、配色、菜单）。
 
-4. **访问网站**
-   - 仓库名为 `zh1227.github.io`：访问 `https://zh1227.github.io`
-   - 其他仓库名：访问 `https://zh1227.github.io/repository-name`
+## 🌐 线上地址
 
-## 📝 本地开发
+- 预览网址：[https://zh1227.github.io/](https://zh1227.github.io/)
+- 仓库地址：[https://github.com/zh1227/zh1227.github.io](https://github.com/zh1227/zh1227.github.io)
 
-```bash
-# 启动本地开发服务器
-hugo server -D
-
-# 访问 http://localhost:1313
-```
-
-## 📂 项目结构
-
-- `config/_default/` - 网站配置文件
-- `content/posts/` - 博客文章
-- `themes/blowfish/` - Blowfish 主题
-- `static/` - 静态资源
-- `.github/workflows/` - GitHub Actions 部署配置
-
-## 📖 更多信息
-
-- [Hugo 文档](https://gohugo.io/documentation/)
-- [Blowfish 主题文档](https://nunocoracao.github.io/blowfish/docs/)
-- 详细配置请查看 [MANUAL.md](MANUAL.md)
+---
+*Powered by Trae & Gemini-3-Flash-Preview*

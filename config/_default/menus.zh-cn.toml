@@ -1,0 +1,21 @@
+# -- Main Menu --
+[[main]]
+  name = "首页"
+  url = "/"
+  weight = 1
+
+[[main]]
+  name = "博客"
+  pageRef = "posts"
+  weight = 10
+
+[[main]]
+  name = "标签"
+  pageRef = "tags"
+  weight = 20
+
+# -- Footer Menu --
+[[footer]]
+  name = "标签"
+  pageRef = "tags"
+  weight = 10

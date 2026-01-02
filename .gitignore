@@ -1,4 +1,7 @@
 public/
 resources/
 .hugo_build.lock
-docker-compose.override.yml
+.claude/
+.vscode/
+*.log
+.DS_Store

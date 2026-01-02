@@ -5,7 +5,7 @@
 theme = "blowfish"
 # 目标部署地址（期望的根域名）
 baseURL = "https://zh1227.github.io/"
-defaultContentLanguage = "en"
+defaultContentLanguage = "zh-cn"
 
 enableRobotsTXT = true
 [pagination]
