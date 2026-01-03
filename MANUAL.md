@@ -120,12 +120,12 @@ graph TD
     D --> E[Git Push 自动部署]
 ```
 
-### 2. 常用维护命令 (Docker)
+### 2. 常用维护命令（Hugo 官方方式）
 | 命令 | 用途 |
 | :--- | :--- |
-| `docker-compose restart hugo-dev` | **最常用**：修改配置后强制刷新页面 |
-| `docker logs -f hugo-dev` | 查看报错信息（如网页打不开时） |
-| `docker exec -it hugo-dev hugo new posts/xxx.md` | 在容器内创建新文章文件 |
+| `hugo server -D` | 本地预览（包含草稿） |
+| `hugo server` | 本地预览（不含草稿） |
+| `hugo new posts/my-post/index.md` | 创建新文章（Page Bundle 结构，推荐） |
 
 ---
 
