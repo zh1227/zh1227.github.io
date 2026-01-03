@@ -1,18 +1,18 @@
 public/
 resources/
 .hugo_build.lock
-docker-compose.override.yml
+/docker-compose.override.yml
 
 # Optional local dev tooling (not part of Hugo official structure)
-Dockerfile
-docker-compose.yml
-.dockerignore
+/Dockerfile
+/docker-compose.yml
+/.dockerignore
 
 # Local tooling/editor state (do not commit)
-.vscode/
-.claude/
-.idea/
-.history/
+/.vscode/
+/.claude/
+/.idea/
+/.history/
 
 # Node dependencies (theme tooling)
 **/node_modules/
