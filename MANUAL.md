@@ -15,6 +15,27 @@
 
 ---
 
+## ✅ 仓库上传规则（只提交网站源文件）
+
+Hugo 官方文档明确：`public/`（构建输出）与 `resources/`（管线缓存）会在运行 `hugo` / `hugo server` 时自动生成并可被重建，因此**不应上传到仓库**。同理，本地编辑器/AI 工具配置也属于个人环境，不应进入仓库。
+
+### 允许上传（网站相关）
+- `content/`：文章与页面内容（含 Page Bundle 图片/附件）
+- `config/`：站点配置
+- `layouts/`、`assets/`、`static/`、`archetypes/`：模板与资源
+- `themes/`：主题源码（当前仓库为直接包含主题目录的方式）
+- 文档：`README.md`、`MANUAL.md`、`THEME_CONFIG.md`
+
+### 禁止上传（生成物/缓存/本地环境）
+- `public/`、`resources/`、`.hugo_build.lock`
+- `.vscode/`、`.idea/`、`.claude/`、`node_modules/`
+- `.env*`、`*.key`、`*.pem`
+
+### 每次推送前必做
+- 先运行 `git status --short`，确认待提交列表里没有上述“禁止上传”的路径。
+
+---
+
 ## 🛠 一、 全局站点配置 (hugo.toml)
 *控制网站的基础行为和元数据。*
 

@@ -3,7 +3,8 @@ name: Deploy Hugo site to Pages
 on:
   push:
     branches:
-      - main  # 监听 main 分支的推送
+      - main  # 监听 main/source 分支的推送
+      - source
 
 permissions:
   contents: read

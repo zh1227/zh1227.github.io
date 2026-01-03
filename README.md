@@ -4,9 +4,10 @@
 
 ## 🚀 部署到 GitHub Pages
 
-网站已配置自动部署到 GitHub Pages。每次推送到 `main` 分支时会自动触发构建和部署。
+网站已配置自动部署到 GitHub Pages。每次推送到 `main` 或 `source` 分支时会自动触发构建和部署。
 
 ### 首次部署步骤
+推送前请先运行 `git status --short` 确认提交列表里**不包含** `public/`、`resources/`、`.vscode/`、`.claude/` 等生成物/本地配置；发布规则详见 `MANUAL.md` 的“仓库上传规则”。
 
 1. **创建 GitHub 仓库**
    - 在 GitHub 上创建一个新仓库（例如：`username.github.io` 或任意名称）
@@ -15,7 +16,7 @@
 2. **关联远程仓库**
    ```bash
    git init
-   git add .
+   git add -A
    git commit -m "Initial commit"
    git branch -M main
    git remote add origin https://github.com/你的用户名/你的仓库名.git
