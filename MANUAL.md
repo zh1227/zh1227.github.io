@@ -36,6 +36,27 @@ Hugo 官方文档明确：`public/`（构建输出）与 `resources/`（管线�
 
 ---
 
+## 🖼️ 更换浏览器标签页图标（Favicon / Web App 图标）
+
+你在浏览器标签页看到的“小图标”来自主题在 `<head>` 中引用的固定文件名（不是通过某个 TOML 参数配置）。Blowfish 默认会引用这些文件：
+
+- `favicon.ico`
+- `favicon-16x16.png`
+- `favicon-32x32.png`
+- `apple-touch-icon.png`
+- `android-chrome-192x192.png`
+- `android-chrome-512x512.png`
+- `site.webmanifest`
+
+### 推荐方式（不改主题，便于以后升级主题）
+在项目根目录创建 `static/` 文件夹，并把上述文件放到 `static/` 根下（例如 `static/favicon.ico`）。Hugo 会优先使用项目里的同名文件，从而覆盖主题自带图标。
+
+### 当前项目的做法（你这次采用）
+你是直接覆盖了主题目录里的图标文件：`themes/blowfish/static/` 下的同名文件。
+这种方式也能生效，但如果未来更新主题，可能会被主题更新覆盖，需要你再做一次同样的替换。
+
+---
+
 ## 🛠 一、 全局站点配置 (hugo.toml)
 *控制网站的基础行为和元数据。*
 
